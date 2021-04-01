@@ -1,0 +1,418 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<jbpm-configuration>
+
+    <process-engine-context>
+
+        <!-- ********** Email notification to internal staff (PMs, CMs) about a new estimate requested. ********* -->
+        <mail-template name="estimateRequestedInternalNotification">
+            <to addresses="${projectInfo.pmEmails}, ${projectInfo.cmEmails}"/>
+            <subject>[LingoNET STAGING 1 - FELSPOON]: Estimate Request from ${projectInfo.clientContactCompany}</subject>
+            <html><p>Hello,</p>
+                <p>
+                    A new estimate is requested by client ${projectInfo.clientContactFirstName} ${projectInfo.clientContactLastName} from ${projectInfo.clientContactCompany}. <br/>
+                    Project name: ${projectInfo.projectName} <br/>
+                </p>
+                <p>
+                    Sent by LingoNET STAGING 1
+                </p>
+                <p>This is an auto generated email. Please do not reply directly to this email address.</p>
+            </html>
+        </mail-template>
+
+        <!-- ********** Email notification to project estimators about a new estimate requested. ********* -->
+        <mail-template name="estimateRequestedInternalNotification2">
+            <to addresses="${projectInfo.estimatorEmails}"/>
+            <subject>[LingoNET STAGING 1 - FELSPOON]: Estimate Request from ${projectInfo.clientContactCompany}</subject>
+            <html><p>Hello,</p>
+                <p>
+                    A new estimate is requested by client ${projectInfo.clientContactFirstName} ${projectInfo.clientContactLastName} from ${projectInfo.clientContactCompany}. <br/>
+                    Project name: ${projectInfo.projectName} <br/>
+                </p>
+                <p>
+                    Sent by LingoNET STAGING 1
+                </p>
+                <p>This is an auto generated email. Please do not reply directly to this email address.</p>
+            </html>
+        </mail-template>
+
+        <!-- ********** Email notification to client about a new estimate requested. ********* -->
+        <mail-template name="estimateStartedClientNotification">
+            <to addresses="${projectInfo.clientContactEmails}"/>
+            <subject>[LingoNET STAGING 1 - FELSPOON]: Estimate Started</subject>
+            <html><p>Hello ${projectInfo.clientContactFirstName},</p>
+                <p>A new LingoNET estimate for project "${projectInfo.projectName}" is successfully started.
+                    We will get back to you with a quote shortly.
+                </p>
+                <p>You can track the status of the project on our web site: <a href="https://felspoon.llts.com">felspoon.llts.com</a>.</p>
+                <p>Sent by LingoNET STAGING 1</p>
+                <p>This is an auto generated email. Please do not reply directly to this email address.</p>
+            </html>
+        </mail-template>
+
+        <!-- ********** Email notification to client about an estimate being ready for client review and approval. ********* -->
+        <mail-template name="estimateReadyForApprovalClientNotification">
+            <to addresses="${projectInfo.clientContactEmails}"/>
+            <subject>[LingoNET STAGING 1 - FELSPOON]: Estimate Is Ready</subject>
+            <html><p>Hello ${projectInfo.clientContactFirstName},</p>
+                <p>An estimate for project "${projectInfo.projectName}" is ready for your review and approval.</p>
+                <p>You can see the quote on our web site: <a href="https://felspoon.llts.com">felspoon.llts.com</a>.</p>
+                <p>Sent by LingoNET STAGING 1</p>
+                <p>This is an auto generated email. Please do not reply directly to this email address.</p>
+            </html>
+        </mail-template>
+
+        <!-- ********** Email notification to internal staff (PMs, CMs) about an estimate approval by the client. ********* -->
+        <mail-template name="estimateApprovedInternalNotification">
+            <to addresses="${projectInfo.pmEmails}, ${projectInfo.cmEmails}"/>
+            <subject>[LingoNET STAGING 1 - FELSPOON]: Estimate Approved by ${projectInfo.clientContactCompany}</subject>
+            <html><p>Hello,</p>
+                <p>
+                    An estimate for project "${projectInfo.projectName}" was approved by client ${projectInfo.clientContactFirstName} ${projectInfo.clientContactLastName} from ${projectInfo.clientContactCompany}.
+                    The project will start automatically according to the client's project workflow.
+                </p>
+                <p>
+                    Sent by LingoNET STAGING 1
+                </p>
+                <p>This is an auto generated email. Please do not reply directly to this email address.</p>
+            </html>
+        </mail-template>
+
+        <!-- ********** Email notification to internal staff (PMs, CMs) about an estimate rejection by the client. ********* -->
+        <mail-template name="estimateRejectedInternalNotification">
+            <to addresses="${projectInfo.pmEmails}, ${projectInfo.cmEmails}"/>
+            <subject>[LingoNET STAGING 1 - FELSPOON]: Estimate Rejected by ${projectInfo.clientContactCompany}</subject>
+            <html><p>Hello,</p>
+                <p>
+                    An estimate for project "${projectInfo.projectName}" was rejected by client ${projectInfo.clientContactFirstName} ${projectInfo.clientContactLastName} from ${projectInfo.clientContactCompany}.
+                </p>
+                <p>
+                    Sent by LingoNET STAGING 1
+                </p>
+                <p>This is an auto generated email. Please do not reply directly to this email address.</p>
+            </html>
+        </mail-template>
+
+        <!-- ********** Email notification to internal staff (PMs, CMs) about a new project creation. ********* -->
+        <mail-template name="projectStartedInternalNotification">
+            <to addresses="${projectInfo.pmEmails}, ${projectInfo.cmEmails}"/>
+            <subject>[LingoNET STAGING 1 - FELSPOON]: Project started for ${projectInfo.clientContactCompany}</subject>
+            <html><p>Hello,</p>
+                <p>
+                    A new LingoNET project is started for client ${projectInfo.clientContactFirstName} ${projectInfo.clientContactLastName} from ${projectInfo.clientContactCompany}. <br/>
+                    Project name: ${projectInfo.projectName} <br/>
+                    Project @task ID: ${projectInfo.projectAttaskId} <br/>
+                </p>
+                <p>
+                    Sent by LingoNET STAGING 1
+                </p>
+                <p>This is an auto generated email. Please do not reply directly to this email address.</p>
+            </html>
+        </mail-template>
+
+        <!-- ********** Email notification to client about a new project creation. ********* -->
+        <mail-template name="projectStartedClientNotification">
+            <to addresses="${projectInfo.clientContactEmails}"/>
+            <subject>[LingoNET STAGING 1 - FELSPOON]: Project started</subject>
+            <html><p>Hello ${projectInfo.clientContactFirstName},</p>
+                <p>A new LingoNET project "${projectInfo.projectName}" has been successfully started.
+                    You can track the status of the project on our web site: <a href="https://felspoon.llts.com">felspoon.llts.com</a>.
+                </p>
+                <p>
+                    Sent by LingoNET STAGING 1
+                </p>
+                <p>This is an auto generated email. Please do not reply directly to this email address.</p>
+            </html>
+        </mail-template>
+
+        <!-- ********** Email notification to internal staff (PMs) about analysis failure for one of the language combinations of the project. ********* -->
+        <mail-template name="fixAnalysisInternalNotification">
+            <to addresses="${subprojectInfo.projectInfo.pmEmails}"/>
+            <subject>[LingoNET STAGING 1 - FELSPOON]: Analysis Failed for ${subprojectInfo.projectInfo.clientContactCompany}</subject>
+            <html><p>Hello,</p>
+                <p>
+                    File analysis for language combination ${subprojectInfo.languagePairDescription} failed. <br/>
+                    Please update the analysis information manually in order for the project to proceed. <br/>
+                    <br/>
+                    Project name: ${subprojectInfo.projectInfo.projectName} <br/>
+                    Project @task ID: ${subprojectInfo.projectInfo.projectAttaskId} <br/>
+                </p>
+                <p>
+                    Sent by LingoNET STAGING 1
+                </p>
+                <p>This is an auto generated email. Please do not reply directly to this email address.</p>
+            </html>
+        </mail-template>
+
+        <!-- ********** Email notification to internal staff (PMs, CMs) about one of the languages successful completion. ********* -->
+        <mail-template name="subprojectCompleteInternalNotification">
+            <to addresses="${subprojectInfo.projectInfo.pmEmails}, ${subprojectInfo.projectInfo.cmEmails}"/>
+            <subject>[LingoNET STAGING 1 - FELSPOON]: Project status update for ${subprojectInfo.projectInfo.clientContactCompany}</subject>
+            <html><p>Hello,</p>
+                <p>
+                    This is a project status update. Language combination ${subprojectInfo.languagePairDescription} is now complete. <br/>
+                    <br/>
+                    Project name: ${subprojectInfo.projectInfo.projectName} <br/>
+                    Project @task ID: ${subprojectInfo.projectInfo.projectAttaskId} <br/>
+                </p>
+                <p>
+                    Sent by LingoNET STAGING 1
+                </p>
+                <p>This is an auto generated email. Please do not reply directly to this email address.</p>
+            </html>
+        </mail-template>
+
+        <!-- ********** Email notification to client about one of the languages successful completion. ********* -->
+        <mail-template name="subprojectCompleteClientNotification">
+            <to addresses="${subprojectInfo.projectInfo.clientContactEmails}"/>
+            <subject>[LingoNET STAGING 1 - FELSPOON]: Project status update</subject>
+            <html><p>Hello ${subprojectInfo.projectInfo.clientContactFirstName},</p>
+                <p>
+                    Language combination ${subprojectInfo.languagePairDescription} of project ${subprojectInfo.projectInfo.projectName} is now complete.
+                </p>
+                You can find the latest information about the project on our web site: <a href="https://felspoon.llts.com">felspoon.llts.com</a>.
+                <p>
+                    Sent by LingoNET STAGING 1
+                </p>
+                <p>This is an auto generated email. Please do not reply directly to this email address.</p>
+            </html>
+        </mail-template>
+
+        <!-- ********** Email notification to internal staff (PMs, CMs) about one of the languages cancellation. ********* -->
+        <mail-template name="subprojectCanceledInternalNotification">
+            <to addresses="${subprojectInfo.projectInfo.pmEmails}, ${subprojectInfo.projectInfo.cmEmails}"/>
+            <subject>[LingoNET STAGING 1 - FELSPOON]: Project status update for ${subprojectInfo.projectInfo.clientContactCompany}</subject>
+            <html><p>Hello,</p>
+                <p>
+                    This is a project status update. Work on language combination ${subprojectInfo.languagePairDescription} is canceled. <br/>
+                    <br/>
+                    Project name: ${subprojectInfo.projectInfo.projectName} <br/>
+                    Project @task ID: ${subprojectInfo.projectInfo.projectAttaskId} <br/>
+                </p>
+                <p>
+                    Sent by LingoNET STAGING 1
+                </p>
+                <p>This is an auto generated email. Please do not reply directly to this email address.</p>
+            </html>
+        </mail-template>
+
+        <!-- ********** Email notification to Project Manager(s) of the project to request providing number of hours allocated for phase task. ****** -->
+        <mail-template name="enterAllocatedHoursForPhasePMNotification">
+            <to addresses="${subprojectInfo.projectInfo.pmEmails}"/>
+            <subject>[LingoNET STAGING 1 - FELSPOON]: Project Requires PM Attention for ${subprojectInfo.projectInfo.clientContactCompany}</subject>
+            <html><p>Hello,</p>
+                <p>
+                    Please enter the number of hours allocated for work on phase "${phaseName}" for language combination ${subprojectInfo.languagePairDescription}
+                    of project "${subprojectInfo.projectInfo.projectName}" (project @task ID: ${subprojectInfo.projectInfo.projectAttaskId}).
+                </p>
+                <p>
+                    Sent by LingoNET STAGING 1
+                </p>
+                <p>This is an auto generated email. Please do not reply directly to this email address.</p>
+            </html>
+        </mail-template>
+
+        <!-- ********** Email notification to Project Manager(s) of the project to request manual assignment of phase task candidate. ****** -->
+        <mail-template name="assignPhaseTaskCandidatesPMNotification">
+            <to addresses="${subprojectInfo.projectInfo.pmEmails}"/>
+            <subject>[LingoNET STAGING 1 - FELSPOON]: Project Requires PM Attention for ${subprojectInfo.projectInfo.clientContactCompany}</subject>
+            <html><p>Hello,</p>
+                <p>
+                    Please assign manually a candidate for working on phase "${phaseName}" for language combination ${subprojectInfo.languagePairDescription}
+                    of project "${subprojectInfo.projectInfo.projectName}" (project @task ID: ${subprojectInfo.projectInfo.projectAttaskId}).
+                </p>
+                <p>
+                    Sent by LingoNET STAGING 1
+                </p>
+                <p>This is an auto generated email. Please do not reply directly to this email address.</p>
+            </html>
+        </mail-template>
+
+        <!-- ********* Email notification to phase task candidate(s) about new task assigned to them. ******** -->
+        <mail-template name="phaseTaskAssignedNotification">
+            <to addresses="${phaseTaskCandidates.candidateEmails}"/>
+            <subject>[LingoNET STAGING 1 - FELSPOON]: New Task for ${subprojectInfo.projectInfo.clientContactCompany}</subject>
+            <html><p>Hello,</p>
+                <p>
+                    You have been selected to work on phase "${phaseName}" language combination ${subprojectInfo.languagePairDescription}.<br/>
+                    Project name: ${subprojectInfo.projectInfo.projectName} <br/>
+                    Project @task ID: ${subprojectInfo.projectInfo.projectAttaskId} <br/>
+                </p>
+                <p>
+                    Sent by LingoNET STAGING 1
+                </p>
+                <p>This is an auto generated email. Please do not reply directly to this email address.</p>
+            </html>
+        </mail-template>
+
+        <!-- ********* Email notification to project manager(s) about an assignee rejecting work on a phase task. ******** -->
+        <mail-template name="phaseTaskAcceptedNotification">
+            <to addresses="${subprojectInfo.projectInfo.pmEmails}"/>
+            <subject>[LingoNET STAGING 1 - FELSPOON]: Task Accepted for ${subprojectInfo.projectInfo.clientContactCompany}</subject>
+            <html><p>Hello,</p>
+                <p>
+                    An assignee accepted work on phase "${phaseName}" language combination ${subprojectInfo.languagePairDescription}.<br/>
+                    Project name: ${subprojectInfo.projectInfo.projectName} <br/>
+                    Project @task ID: ${subprojectInfo.projectInfo.projectAttaskId} <br/>
+                </p>
+                <p>
+                    Sent by LingoNET STAGING 1
+                </p>
+                <p>This is an auto generated email. Please do not reply directly to this email address.</p>
+            </html>
+        </mail-template>
+
+        <!-- ********* Email notification to project manager(s) about an assignee rejecting work on a phase task. ******** -->
+        <mail-template name="phaseTaskRejectedNotification">
+            <to addresses="${subprojectInfo.projectInfo.pmEmails}"/>
+            <subject>[LingoNET STAGING 1 - FELSPOON]: Task Rejected for ${subprojectInfo.projectInfo.clientContactCompany}</subject>
+            <html><p>Hello,</p>
+                <p>
+                    An assignee rejected work on phase "${phaseName}" language combination ${subprojectInfo.languagePairDescription}.<br/>
+                    Project name: ${subprojectInfo.projectInfo.projectName} <br/>
+                    Project @task ID: ${subprojectInfo.projectInfo.projectAttaskId} <br/>
+                </p>
+                <p>
+                    Sent by LingoNET STAGING 1
+                </p>
+                <p>This is an auto generated email. Please do not reply directly to this email address.</p>
+            </html>
+        </mail-template>
+
+        <!-- ********* Email notification to project manager(s) about an assignee rejecting work on a phase task. ******** -->
+        <mail-template name="phaseTaskCompleteNotification">
+            <to addresses="${subprojectInfo.projectInfo.pmEmails}"/>
+            <subject>[LingoNET STAGING 1 - FELSPOON]: Task Complete for ${subprojectInfo.projectInfo.clientContactCompany}</subject>
+            <html><p>Hello,</p>
+                <p>
+                    Work on phase "${phaseName}" language combination ${subprojectInfo.languagePairDescription} is now complete.<br/>
+                    Project name: ${subprojectInfo.projectInfo.projectName} <br/>
+                    Project @task ID: ${subprojectInfo.projectInfo.projectAttaskId} <br/>
+                </p>
+                <p>
+                    Sent by LingoNET STAGING 1
+                </p>
+                <p>This is an auto generated email. Please do not reply directly to this email address.</p>
+            </html>
+        </mail-template>
+
+        <!-- ********** Email notification to internal staff (PMs, CMs) about successful project completion. ********* -->
+        <mail-template name="projectCompleteInternalNotification">
+            <to addresses="${projectInfo.pmEmails}, ${projectInfo.cmEmails}"/>
+            <subject>[LingoNET STAGING}: Project status update for ${projectInfo.clientContactCompany}</subject>
+            <html><p>Hello,</p>
+                <p>
+                    This is a project status update. Project "${projectInfo.projectName} is now complete. <br/>
+                    <br/>
+                    Project @task ID: ${projectInfo.projectAttaskId} <br/>
+                </p>
+                <p>
+                    Sent by LingoNET STAGING 1
+                </p>
+                <p>This is an auto generated email. Please do not reply directly to this email address.</p>
+            </html>
+        </mail-template>
+
+        <!-- ********** Email notification to internal staff (PMs, CMs) about project cancellation. ********* -->
+        <mail-template name="projectCanceledInternalNotification">
+            <to addresses="${projectInfo.pmEmails}, ${projectInfo.cmEmails}"/>
+            <subject>[LingoNET STAGING 1 - FELSPOON]: Project status update for ${projectInfo.clientContactCompany}</subject>
+            <html><p>Hello,</p>
+                <p>
+                    This is a project status update. Project ${projectInfo.projectName} is canceled. <br/>
+                    <br/>
+                    Project @task ID: ${projectInfo.projectAttaskId} <br/>
+                </p>
+                <p>
+                    Sent by LingoNET STAGING 1
+                </p>
+                <p>This is an auto generated email. Please do not reply directly to this email address.</p>
+            </html>
+        </mail-template>
+
+        <!-- ********** Email notification to client about successful project completion. ********* -->
+        <mail-template name="projectCompleteClientNotification">
+            <to addresses="${projectInfo.clientContactEmails}"/>
+            <subject>[LingoNET STAGING 1 - FELSPOON]: Project status update</subject>
+            <html><p>Hello ${projectInfo.clientContactFirstName},</p>
+                <p>
+                    Project ${projectInfo.projectName} is now complete.
+                </p>
+                You can find the latest information about the project on our web site: <a href="https://felspoon.llts.com">felspoon.llts.com</a>.
+                <p>
+                    Sent by LingoNET STAGING 1
+                </p>
+                <p>This is an auto generated email. Please do not reply directly to this email address.</p>
+            </html>
+        </mail-template>
+
+        <!-- ********** Email notification to internal staff (PMs, CMs) about project cancellation. ********* -->
+        <mail-template name="projectDisapprovedByClientInternalNotification">
+            <to addresses="${projectInfo.pmEmails}, ${projectInfo.cmEmails}"/>
+            <subject>[LingoNET STAGING 1 - FELSPOON]: Project rejected by ${projectInfo.clientContactCompany}</subject>
+            <html>
+                <p>Hello,</p>
+                <p>
+                    Project ${projectInfo.projectName} has been rejected by the client.
+                    <br/>
+                    <br/>
+                    Project @task ID: ${projectInfo.projectAttaskId}
+                    <br/>
+                </p>
+                <p>
+                    Sent by LingoNET STAGING 1
+                </p>
+                <p>This is an auto generated email. Please do not reply directly to this email address.</p>
+            </html>
+        </mail-template>
+
+        <!-- ********** Email notification to client requesting project approval before the project starts. ********* -->
+        <mail-template name="projectRequiresClientApprovalClientNotification">
+            <to addresses="${projectInfo.clientContactEmails}"/>
+            <subject>[LingoNET STAGING 1 - FELSPOON]: Project Approval Request</subject>
+            <html>
+                <p>Hello ${projectInfo.clientContactFirstName},</p>
+                <p>Project "${projectInfo.projectName}" requires your approval before it can be started.</p>
+                <p>You can review and approve the project on our web site:<a href="https://felspoon.llts.com">felspoon.llts.com</a>.
+                </p>
+                <p>Sent by LingoNET STAGING 1</p>
+                <p>This is an auto generated email. Please do not reply directly to this email address.</p>
+            </html>
+        </mail-template>
+
+        <!-- ********** Email notification to Project Manager(s) of the project requesting to complete "final bill to client" task. ****** -->
+        <mail-template name="completeFinalBillToClientPMNotification">
+            <to addresses="${projectInfo.pmEmails}"/>
+            <subject>[LingoNET STAGING 1 - FELSPOON]: Complete Final Bill to Client for ${projectInfo.clientContactCompany}</subject>
+            <html>
+                <p>Hello,</p>
+                <p>
+                    Please complete the Final Bill to Client task for project "${projectInfo.projectName}"
+                    (Project @task ID: ${projectInfo.projectAttaskId}).
+                </p>
+                <p>
+                    Sent by LingoNET STAGING 1
+                </p>
+                <p>This is an auto generated email. Please do not reply directly to this email address.</p>
+            </html>
+        </mail-template>
+
+        <!-- ********** Email notification to Project Manager(s) of the project requesting to assign a workfow. ****** -->
+
+        <mail-template name="assignProjectWorkflowNotification">
+            <to addresses="${projectInfo.pmEmails}"/>
+            <subject>[LingoNET STAGING 1 - FELSPOON]: Workflow Assignment Required for ${projectInfo.clientContactCompany}</subject>
+            <html>
+                <p>Hello,</p>
+                <p>
+                    Please assign a workflow to project "${projectInfo.projectName}".
+                </p>
+                <p>
+                    Sent by LingoNET STAGING 1
+                </p>
+                <p>This is an auto generated email. Please do not reply directly to this email address.</p>
+            </html>
+        </mail-template>
+    </process-engine-context>
+
+</jbpm-configuration>

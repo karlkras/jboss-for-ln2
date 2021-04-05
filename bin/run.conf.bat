@@ -40,7 +40,7 @@ rem # options that are always passed by run.bat.
 rem #
 
 rem # JVM memory allocation pool parameters - modify as appropriate.
-set "JAVA_OPTS=-Xms128M -Xmx512M -XX:MaxPermSize=256M"
+set "JAVA_OPTS=%JAVA_OPTS% -XX:PermSize=256m -Xmx2048m -Xms2048m -XX:+UseParallelOldGC"
 
 rem # Reduce the RMI GCs to once per hour for Sun JVMs.
 set "JAVA_OPTS=%JAVA_OPTS% -Dsun.rmi.dgc.client.gcInterval=3600000 -Dsun.rmi.dgc.server.gcInterval=3600000"
